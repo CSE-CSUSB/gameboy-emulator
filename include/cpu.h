@@ -3,9 +3,9 @@
 
 #include <map>
 
-typedef unsiged uint8_t u8;
-typedef unsiged uint16_t u16;
-typedef unsiged uint32_t u32;
+typedef unsigned uint8_t u8;
+typedef unsigned uint16_t u16;
+typedef unsigned uint32_t u32;
 
 class CPU
 {
