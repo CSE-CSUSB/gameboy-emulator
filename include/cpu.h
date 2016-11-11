@@ -2,15 +2,20 @@
 #define CPU_H
 
 #include <map>
+#include <iostream>
+#include <fstream>
+#include <vector>
 
-typedef unsigned uint8_t u8;
-typedef unsigned uint16_t u16;
-typedef unsigned uint32_t u32;
+typedef uint8_t u8;
+typedef uint16_t u16;
+typedef uint32_t u32;
+
+using namespace std;
 
 class CPU
 {
 private:
-    typedef void(CPU::*FP)
+    typedef void(CPU::*FP)();
 
     // 16-bit registers
     u16 AF; // Accumulator & Flags
@@ -20,11 +25,19 @@ private:
     u16 SP; // Stack Pointer
     u16 PC; // Program Counter/Pointer
 
+
+    // This is RAM which is ~8kB
+    vector<u16> memory(0x1fff);
+
     // function pointer map, used to go to loaded instruction
     // without use of switch or if-else statements
     map<int, FP> instr;
+
+    void load(char *);
 public:
     void run(char *);
+
+    CPU();
 
     /*********** Instructions *************/
 
@@ -106,6 +119,6 @@ public:
     void dec_rr();
     void add_sp_dd();
     void hl_spdd();
-}
+};
 
 #endif

@@ -1,11 +1,15 @@
-INCLUDE = ./include
+IDIR = ./include
 SRC = ./src
+DEPS = cpu.h
 CC = c++
 BIN = ./bin
-CFLAGS = -ggdb -Wall $(shell pkg-config sdl2 --libs --cflags) -std=c++11 
+DEBUGGER = -g
+CFLAGS = -Wall -std=c++11 
+# $(shell pkg-config sdl2 --libs --cflags)  to run sdl use this command
 
-cpu:
-	$(CC) $(CFLAGS) $(SRC)/main.cpp -I$(INCLUDE)/ -o$(BIN)/chip8
+%.o: %.c $(DEPS)
+	$(CC) -c -o 
+
 
 clean:
 	rm -rf $(BIN)/*
