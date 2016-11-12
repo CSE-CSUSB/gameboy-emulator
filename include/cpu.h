@@ -2,16 +2,18 @@
 #define CPU_H
 
 #include <map>
+#include <vector>
+#include <fstream>
 using namespace std;
 
-typedef unsigned uint8_t u8;
-typedef unsigned uint16_t u16;
-typedef unsigned uint32_t u32;
+typedef uint8_t u8;
+typedef uint16_t u16;
+typedef uint32_t u32;
 
 class CPU
 {
 private:
-    typedef void(CPU::*FP)
+    typedef void (CPU::*FP)();
 
     // 16-bit registers
     u16 AF; // Accumulator & Flags
@@ -24,7 +26,9 @@ private:
     // function pointer map, used to go to loaded instruction
     // without use of switch or if-else statements
     map<int, FP> instr;
+    void load(char *);
 public:
+    CPU();
     void run(char *);
 
     /*********** Instructions *************/
@@ -48,10 +52,9 @@ public:
 
     void ldi_hl_a();
     void ldi_a_hl();
-    
+
     void ldd_hl_a();
     void ldd_a_hl();
-
 
     // 16-bit load instr
     void ld_rr_nn();
@@ -138,16 +141,15 @@ public:
     void srl_r();
     void srl_hl();
 
-
     // Singlebit operation
     void bit_n_r();
     void bit_n_hl();
-    
+
     void set_n_r();
     void set_n_hl();
 
     void res_n_r();
     void res_n_hl();
-}
+};
 
 #endif
