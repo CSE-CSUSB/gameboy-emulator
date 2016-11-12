@@ -2,6 +2,7 @@
 #define CPU_H
 
 #include <map>
+using namespace std;
 
 typedef unsigned uint8_t u8;
 typedef unsigned uint16_t u16;
@@ -105,7 +106,48 @@ public:
     void inc_rr();
     void dec_rr();
     void add_sp_dd();
-    void hl_spdd();
+    void ld_hl_spdd();
+
+    // Rotate and shift-commands
+    void rlca();
+    void rla();
+    void rrca();
+    void rra();
+
+    void rlc_r();
+    void rlc_hl();
+
+    void rl_r();
+    void rl_hl();
+
+    void rrc_r();
+    void rrc_hl();
+
+    void rr_r();
+    void rr_hl();
+
+    void sla_r();
+    void sla_hl();
+
+    void swap_r();
+    void swap_hl();
+
+    void sra_r();
+    void sra_hl();
+
+    void srl_r();
+    void srl_hl();
+
+
+    // Singlebit operation
+    void bit_n_r();
+    void bit_n_hl();
+    
+    void set_n_r();
+    void set_n_hl();
+
+    void res_n_r();
+    void res_n_hl();
 }
 
 #endif
