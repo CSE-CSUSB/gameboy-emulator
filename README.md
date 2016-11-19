@@ -1,4 +1,4 @@
-##Gamboy Emulator
+##Gameboy Emulator
 
 ---
 
