@@ -1,3 +1,3 @@
 # gameboy-emulator
 Contributors:
-Kyle Lee
+Kyle Lee (2nd try with SSH)
