@@ -1,9 +1,9 @@
 ##Gamboy Emulator
 
+---
+
 Contributors:
-Miguel Saldivar
-
-Nicholas Burton
-
-Kyle Lee
-
+ * Miguel Saldivar
+ * Nicholas Burton
+ * Kyle Lee
+ * Adrian Osuna
